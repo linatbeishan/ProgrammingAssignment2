@@ -1,6 +1,12 @@
 ## Just like the provided vector example, I "imitate" to write the functions for matrix,
 ##  Below are the two functions that are used to create a special
 ## "matrix" object, actually it's a list, to store matrix and cache its inverted matrix
+## After you load the 2 functions, you can use the following codes
+## to feel the speed difference after using the "cache" feature 
+## x <- 1:4000
+## a <- makeCacheMatrix(diag(x))
+## system.time(f <- cacheSolve(a))
+## system.time(g <- cacheSolve(a))
 
 ## makeCacheMatrix function: returns a special "matrix", containing a function to
 ## 1. set the value of the matrix
@@ -10,15 +16,11 @@
 
 ## Please be noted that,
 ## 1. The argument of this function should be inputted a square invertible matrix,
-## otherwise it will return error after the matrix is used in the second function
-## 2. It may exceed your memory limit if you provide a large matrix,and get the error message
-## like, "Error in matrix: too many elements specified", 
-## in this case, please input a smaller matrix
-## 3. Afeter you load the 2 functions, you can use the follow test example to feel the speed difference after using the "cache" feature 
-## x <- 1:4000
-## a <- makeCacheMatrix(diag(x))
-## system.time(f <- cacheSolve(a))
-## system.time(g <- cacheSolve(a))
+##    otherwise it will return error after the matrix is used in the second function
+## 2. It may exceed your memory limit if you provide a large matrix,
+##    and you'll get the error message like, "Error in matrix: too many elements specified", 
+##    in this case, please input a smaller matrix
+
 
 makeCacheMatrix <- function(x = matrix()) {
         i <- NULL
